@@ -1,0 +1,30 @@
+
+    <div class="mb-3">
+        <label for="articletitle" class="form-label">Article Title</label>
+        <input type="text" class="form-control" [(ngModel)]="articleDto.title" #articleTitle>
+        
+      </div>
+      <div class="mb-3">
+        <label for="articlebody" class="form-label">Article Body</label>
+        <textarea class="form-control"  [(ngModel)]="articleDto.body" #articleBody rows="3"></textarea>
+      </div>
+      <div class="mb-3">
+          <label for="articleauthor" class="form-label">Article Author </label>
+          <input type="text" class="form-control" [(ngModel)]="articleDto.author" #articleAuthor>
+      </div>
+
+      <div class="mb-3">
+        <label for="article_marital_status" class="form-label">Marital Status </label>
+        <!-- <select class="form-control" [(ngModel)]="articleDto.marital_status_id">
+          <option *ngFor="let status of maritalStatuses; let i = index" value="{{status.id}}">
+            {{status.name}}
+          </option>
+        </select> -->
+        <ng-select [items]="maritalStatuses" 
+        bindLabel="name" 
+        bindValue="id" 
+        [(ngModel)]="articleDto.marital_status_id">
+   </ng-select>
+    </div>
+  
+      <button class="btn btn-success" type="button" (click)="update()"> Update</button>
